@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Electron File Upload</title>
+  <link rel="stylesheet" href="assets/styles/styles.css">
+</head>
+<body>
+  <h1>File Upload</h1>
+  <button id="fileInputButton">Select File</button>
+  <span id="filePathDisplay"></span>
+  <br>
+  <button id="uploadButton">Upload File</button>
+  <br>
+  <button id="toggleButton">Toggle Parameter Panel</button>
+  <div id="parameterPanel" style="display: none;">
+    <h2>Parameters</h2>
+    <div id="parameterDisplay"></div>
+  </div>
+  <div id="progressBarContainer">
+    <div id="progressBar"></div>
+  </div>
+  <script src="dist/renderer/main.js"></script>
+</body>
+</html>
+
