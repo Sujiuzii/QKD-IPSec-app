@@ -6,55 +6,62 @@ import (
 	"io"
 	"net/http"
 	"os"
+
+	"github.com/gorilla/mux"
 )
 
-type Parameters struct {
-	Param1 string `json:"param1"`
-	Param2 int    `json:"param2"`
-}
-
-func uploadHandler(w http.ResponseWriter, r *http.Request) {
-	r.ParseMultipartForm(10 << 20)
-
-	file, handler, err := r.FormFile("file")
+func uploadFile(w http.ResponseWriter, r *http.Request) {
+	file, _, err := r.FormFile("file")
 	if err != nil {
-		http.Error(w, "Error retrieving the file", http.StatusBadRequest)
+		http.Error(w, "Unable to read file", http.StatusBadRequest)
 		return
 	}
 	defer file.Close()
 
-	dst, err := os.Create("./uploads/" + handler.Filename)
+	// homeDir, err := os.UserHomeDir()
+
+	homeDir := "/home/suhui/tmp/serverre"
+
 	if err != nil {
-		http.Error(w, "Error creating the file", http.StatusInternalServerError)
+		http.Error(w, "Unable to get user home directory", http.StatusInternalServerError)
+		return
+	}
+
+	err = os.MkdirAll(homeDir+"/uploads", os.ModePerm)
+	if err != nil {
+		http.Error(w, "Unable to create uploads directory", http.StatusInternalServerError)
+		return
+	}
+
+	dst, err := os.OpenFile(homeDir+"/uploads/"+r.Header.Get("Filename"), os.O_RDWR|os.O_CREATE, 0666)
+	if err != nil {
+		http.Error(w, "Unable to create file", http.StatusInternalServerError)
 		return
 	}
 	defer dst.Close()
 
-	_, err = io.Copy(dst, file)
-	if err != nil {
-		http.Error(w, "Error saving the file", http.StatusInternalServerError)
+	if _, err := io.Copy(dst, file); err != nil {
+		http.Error(w, "Unable to save file", http.StatusInternalServerError)
 		return
 	}
 
-	w.WriteHeader(http.StatusOK)
-	fmt.Fprintf(w, "File uploaded successfully")
+	fmt.Fprintln(w, "Upload successful")
 }
 
 func parametersHandler(w http.ResponseWriter, r *http.Request) {
-	params := Parameters{
-		Param1: "example",
-		Param2: 123,
+	params := map[string]string{
+		"param1": "value1",
+		"param2": "value2",
 	}
-
-	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(params)
 }
 
 func main() {
-	http.HandleFunc("/upload", uploadHandler)
-	http.HandleFunc("/parameters", parametersHandler)
-
-	fmt.Println("Server started at :8080")
-	http.ListenAndServe(":8080", nil)
+	r := mux.NewRouter()
+	r.HandleFunc("/upload", uploadFile).Methods("POST")
+	r.HandleFunc("/parameters", parametersHandler).Methods("GET")
+	fmt.Println("Starting server on :8880")
+	if err := http.ListenAndServe(":8880", r); err != nil {
+		fmt.Println("Server failed:", err)
+	}
 }
-
