@@ -1,34 +1,30 @@
-export const uploadFile = async (filePath: string, ip: string, port: number) => {
-  const formData = new FormData();
-  const file = await fetch(filePath).then(response => response.blob());
-  formData.append("file", file, "uploadedFile");
+import * as fs from 'fs';
+import * as path from 'path';
 
+export async function uploadFile(filePath: string, ip: string, port: number): Promise<void> {
+  const file = await fs.promises.readFile(filePath);
   const response = await fetch(`http://${ip}:${port}/upload`, {
-    method: "POST",
-    body: formData,
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/octet-stream',
+      'Filename': path.basename(filePath),
+    },
+    body: file,
   });
 
   if (!response.ok) {
-    throw new Error("File upload failed");
+    throw new Error('File upload failed');
   }
-};
+}
 
-export const onProgress = (callback: (progress: number) => void) => {
-  let progress = 0;
-  const interval = setInterval(() => {
-    progress += 10;
-    callback(progress);
-    if (progress >= 100) {
-      clearInterval(interval);
-    }
-  }, 100);
-};
-
-export const fetchParameters = async () => {
-  const response = await fetch('http://127.0.0.1:8080/parameters');
+export async function fetchParameters(): Promise<any> {
+  const response = await fetch('http://localhost:8880/parameters');
   if (!response.ok) {
     throw new Error('Failed to fetch parameters');
   }
   return response.json();
-};
+}
 
+export function onProgress(callback: (progress: number) => void) {
+  // Implement progress logic here
+}

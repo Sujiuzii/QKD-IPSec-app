@@ -1,37 +1,16 @@
 {
-  "name": "QKD-IPSec-app",
+  "name": "qkd-ipsec-app",
   "version": "1.0.0",
-  "description": "Electron App for QKD-IPSec Platform",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "start": "electron .",
-    "dist": "electron-builder"
+    "start": "electron ."
   },
-  "build": {
-    "appId": "com.myapp.app",
-    "files": [
-      "dist/**/*",
-      "index.html",
-      "assets/**/*"
-    ],
-    "directories": {
-      "buildResources": "assets"
-    },
-    "win": {
-      "target": "nsis"
-    },
-    "mac": {
-      "target": "dmg"
-    },
-    "linux": {
-      "target": "AppImage"
-    }
+  "dependencies": {
+    "electron": "^21.4.4",
+    "electron-builder": "^23.6.0"
   },
   "devDependencies": {
-    "electron": "^21.2.0",
-    "electron-builder": "^23.6.0",
-    "typescript": "^4.8.4"
+    "typescript": "^4.9.5"
   }
 }
-

@@ -1,26 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Electron File Upload</title>
-  <link rel="stylesheet" href="assets/styles/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload App</title>
+    <link rel="stylesheet" href="assets/styles/styles.css">
 </head>
 <body>
-  <h1>File Upload</h1>
-  <button id="fileInputButton">Select File</button>
-  <span id="filePathDisplay"></span>
-  <br>
-  <button id="uploadButton">Upload File</button>
-  <br>
-  <button id="toggleButton">Toggle Parameter Panel</button>
-  <div id="parameterPanel" style="display: none;">
-    <h2>Parameters</h2>
-    <div id="parameterDisplay"></div>
-  </div>
-  <div id="progressBarContainer">
-    <div id="progressBar"></div>
-  </div>
-  <script src="dist/renderer/main.js"></script>
+    <h1>File Upload App</h1>
+    <button id="fileInputButton">Select File</button>
+    <p id="filePathDisplay">No file selected</p>
+    <button id="uploadButton">Upload File</button>
+    <div id="progressContainer">
+        <progress id="uploadProgress" value="0" max="100"></progress>
+    </div>
+    <div id="parameterPanel"></div>
+    <script src="dist/renderer/main.js"></script>
 </body>
 </html>
-

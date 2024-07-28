@@ -1,18 +1,27 @@
 import { app, BrowserWindow, ipcMain, dialog } from 'electron';
 import path from 'path';
 
+let mainWindow: BrowserWindow;
+
 function createWindow() {
-  const mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
-      nodeIntegration: false,
+      // enableRemoteModule: false,
     },
   });
 
-  mainWindow.loadFile(path.join(__dirname, '..', 'index.html'));
+  mainWindow.loadFile('index.html');
+
+  ipcMain.handle('dialog:openFile', async () => {
+    const result = await dialog.showOpenDialog(mainWindow, {
+      properties: ['openFile']
+    });
+    return result.filePaths;
+  });
 }
 
 app.on('ready', createWindow);
@@ -28,11 +37,3 @@ app.on('activate', () => {
     createWindow();
   }
 });
-
-ipcMain.handle('select-file', async () => {
-  const result = await dialog.showOpenDialog({
-    properties: ['openFile'],
-  });
-  return result.filePaths[0];
-});
-
