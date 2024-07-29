@@ -1,5 +1,5 @@
-import { contextBridge, ipcRenderer } from 'electron';
+const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('electron', {
-  selectFile: () => ipcRenderer.invoke('dialog:openFile')
+    fetch: (url: string) => ipcRenderer.invoke('fetch', url),
 });

@@ -1,65 +1,78 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const fileInputButton = document.getElementById('fileInputButton');
-  const uploadButton = document.getElementById('uploadButton');
-  const filePathDisplay = document.getElementById('filePathDisplay');
-  const uploadProgress = document.getElementById('uploadProgress') as HTMLProgressElement;
-  const parameterPanel = document.getElementById('parameterPanel');
+  const sendBtn = document.getElementById('sendBtn');
+  const fileInput = document.getElementById('fileInput') as HTMLInputElement;
+  const ipInput = document.getElementById('ipInput') as HTMLInputElement;
+  const ipVersion = document.getElementById('ipVersion') as HTMLSelectElement;
+  const transferProgress = document.getElementById('transferProgress') as HTMLDivElement;
+  const encryptionProgress = document.getElementById('encryptionProgress') as HTMLDivElement;
+  const fileList = document.getElementById('fileList');
+  const keyQuantity = document.getElementById('keyQuantity');
+  const keyRate = document.getElementById('keyRate');
 
-  let selectedFile: File;
+  sendBtn?.addEventListener('click', async () => {
+      const ip = ipInput.value;
+      const file: File | null = fileInput.files ? fileInput.files[0] : null;
 
-  fileInputButton?.addEventListener('click', async () => {
-      const filePaths = await window.electron.selectFile();
-      if (filePathDisplay) {
-        if (filePaths.length > 0) {
-            filePathDisplay.textContent = filePaths[0];
-            selectedFile = new File([filePaths[0]], filePaths[0]);
-        } else {
-            filePathDisplay.textContent = 'No file selected';
-        }
+      if (!ip || !file) {
+          alert('Please enter an IP address and upload a file.');
+          return;
       }
-  });
 
-  uploadButton?.addEventListener('click', async () => {
-      if (selectedFile) {
-          const formData = new FormData();
-          formData.append('file', selectedFile);
-          formData.append('filename', selectedFile.name);
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('ip', ip);
+      formData.append('ipVersion', ipVersion.value);
 
-          const xhr = new XMLHttpRequest();
-          xhr.open('POST', 'http://localhost:8880/upload', true);
+      try {
+          const response = await fetch('http://localhost:8880/upload', {
+              method: 'POST',
+              body: formData,
+          });
 
-          xhr.upload.onprogress = (event) => {
-              if (event.lengthComputable) {
-                  const percentComplete = (event.loaded / event.total) * 100;
-                  uploadProgress.value = percentComplete;
-              }
-          };
-
-          xhr.onload = () => {
-              if (xhr.status === 200) {
-                  console.log('Upload successful');
-              } else {
-                  console.error('Upload failed');
-              }
-          };
-
-          xhr.send(formData);
-      } else {
-          console.error('No file selected for upload');
-      }
-  });
-
-  // Fetch parameters from backend
-  fetch('http://localhost:8880/parameters')
-      .then(response => response.json())
-      .then(data => {
-          for (const key in data) {
-              if (data.hasOwnProperty(key)) {
-                  const p = document.createElement('p');
-                  p.textContent = `${key}: ${data[key]}`;
-                  parameterPanel?.appendChild(p);
-              }
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
           }
-      })
-      .catch(error => console.error('Error fetching parameters:', error));
+
+        const encryptedVideoContainer = document.getElementById('encryptedVideoContainer');
+        if (encryptedVideoContainer) {
+          encryptedVideoContainer.innerHTML = '<div class="lock-overlay">File has been encrypted</div>';
+        }
+          simulateProgress();
+
+      } catch (error) {
+          console.error('There was a problem with the fetch operation:', error);
+      }
+  });
+
+  function simulateProgress() {
+      let transferValue = 0;
+      let encryptionValue = 0;
+      const interval = setInterval(() => {
+          if (transferValue < 100) {
+              transferValue += 10;
+              transferProgress.style.width = `${transferValue}%`;
+          }
+          if (encryptionValue < 100) {
+              encryptionValue += 10;
+              encryptionProgress.style.width = `${encryptionValue}%`;
+          }
+          if (transferValue >= 100 && encryptionValue >= 100) {
+              clearInterval(interval);
+              const fileName = fileInput.files ? fileInput.files[0].name : null;
+              const listItem = document.createElement('li');
+              listItem.textContent = fileName;
+              fileList?.appendChild(listItem);
+          }
+      }, 500);
+  }
+
+fileInput.addEventListener('change', (event: Event) => {
+    const fileInput = event.target as HTMLInputElement;
+    const file = fileInput.files ? fileInput.files[0] : null;
+    if (file) {
+        const url = URL.createObjectURL(file);
+        const originalVideo = document.getElementById('originalVideo') as HTMLIFrameElement;
+        originalVideo.src = url;
+    }
+});
 });

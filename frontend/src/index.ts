@@ -1,39 +1,38 @@
-import { app, BrowserWindow, ipcMain, dialog } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
 import path from 'path';
 
-let mainWindow: BrowserWindow;
+let mainWindow: BrowserWindow | null;
 
 function createWindow() {
-  mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-      contextIsolation: true,
-      // enableRemoteModule: false,
-    },
-  });
-
-  mainWindow.loadFile('index.html');
-
-  ipcMain.handle('dialog:openFile', async () => {
-    const result = await dialog.showOpenDialog(mainWindow, {
-      properties: ['openFile']
+    mainWindow = new BrowserWindow({
+        width: 1360,
+        height: 1020,
+        webPreferences: {
+            preload: path.join(__dirname, 'preload.js'),
+        },
     });
-    return result.filePaths;
-  });
+
+    mainWindow.loadFile(path.join(__dirname, '../index.html'));
+
+    mainWindow.on('closed', function () {
+        mainWindow = null;
+    });
 }
 
 app.on('ready', createWindow);
-
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
+app.on('window-all-closed', function () {
+    if (process.platform !== 'darwin') {
+        app.quit();
+    }
 });
 
-app.on('activate', () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow();
-  }
+app.on('activate', function () {
+    if (mainWindow === null) {
+        createWindow();
+    }
+});
+
+ipcMain.handle('fetch', async (event, url: string) => {
+    const response = await fetch(url);
+    return response.json();
 });
