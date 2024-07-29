@@ -22,10 +22,10 @@ func uploadFile(w http.ResponseWriter, r *http.Request) {
 
 	homeDir := "/home/suhui/tmp/serverre"
 
-	if err != nil {
-		http.Error(w, "Unable to get user home directory", http.StatusInternalServerError)
-		return
-	}
+	// if err != nil {
+	// 	http.Error(w, "Unable to get user home directory", http.StatusInternalServerError)
+	// 	return
+	// }
 
 	err = os.MkdirAll(homeDir+"/uploads", os.ModePerm)
 	if err != nil {
