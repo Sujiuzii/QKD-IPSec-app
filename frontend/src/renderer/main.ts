@@ -1,3 +1,5 @@
+import { Protocol } from './components/Protocol';
+
 document.addEventListener('DOMContentLoaded', () => {
   const sendBtn = document.getElementById('sendBtn');
   const fileInput = document.getElementById('fileInput') as HTMLInputElement;
@@ -8,6 +10,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const fileList = document.getElementById('fileList');
   const keyQuantity = document.getElementById('keyQuantity');
   const keyRate = document.getElementById('keyRate');
+
+  const transferLink = document.getElementById('transferLink')!;
+  const protocolLink = document.getElementById('protocolLink')!;
+  const transferSection = document.getElementById('transferSection')!;
+  const protocolSection = document.getElementById('protocolSection')!;
+
+  const toggleButton = document.getElementById('toggleButton');
+  const sidebarContent = document.getElementById('sidebarContent');
+
+  if (toggleButton && sidebarContent) {
+      toggleButton.addEventListener('click', () => {
+          sidebarContent.classList.toggle('hidden');
+      });
+  }
+
+  transferLink.addEventListener('click', () => {
+      transferSection.classList.remove('hidden');
+      protocolSection.classList.add('hidden');
+  });
+
+  protocolLink.addEventListener('click', () => {
+      transferSection.classList.add('hidden');
+      protocolSection.classList.remove('hidden');
+      protocolSection.innerHTML = Protocol();
+  });
 
   sendBtn?.addEventListener('click', async () => {
       const ip = ipInput.value;
@@ -75,4 +102,22 @@ fileInput.addEventListener('change', (event: Event) => {
         originalVideo.src = url;
     }
 });
+});
+
+window.addEventListener('DOMContentLoaded', event => {
+
+    // Toggle the side navigation
+    const sidebarToggle = document.body.querySelector('#sidebarToggle');
+    if (sidebarToggle) {
+        // Uncomment Below to persist sidebar toggle between refreshes
+        // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
+        //     document.body.classList.toggle('sb-sidenav-toggled');
+        // }
+        sidebarToggle.addEventListener('click', event => {
+            event.preventDefault();
+            document.body.classList.toggle('sb-sidenav-toggled');
+            localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled').toString());
+        });
+    }
+
 });

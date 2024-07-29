@@ -5,14 +5,14 @@ let mainWindow: BrowserWindow | null;
 
 function createWindow() {
     mainWindow = new BrowserWindow({
-        width: 1360,
+        width: 1600,
         height: 1020,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
         },
     });
 
-    mainWindow.loadFile(path.join(__dirname, '../index.html'));
+    mainWindow.loadFile(path.join(__dirname, '../pages/index.html'));
 
     mainWindow.on('closed', function () {
         mainWindow = null;
