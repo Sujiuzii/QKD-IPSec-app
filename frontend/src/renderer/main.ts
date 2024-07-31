@@ -1,4 +1,4 @@
-import { Protocol } from './components/Protocol';
+import './components/Protocol'
 
 document.addEventListener('DOMContentLoaded', () => {
   const sendBtn = document.getElementById('sendBtn');
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const keyRate = document.getElementById('keyRate');
 
   const transferLink = document.getElementById('transferLink')!;
-  const protocolLink = document.getElementById('protocolLink')!;
+//   const protocolLink = document.getElementById('protocolLink')!;
   const transferSection = document.getElementById('transferSection')!;
   const protocolSection = document.getElementById('protocolSection')!;
 
@@ -30,11 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
       protocolSection.classList.add('hidden');
   });
 
-  protocolLink.addEventListener('click', () => {
-      transferSection.classList.add('hidden');
-      protocolSection.classList.remove('hidden');
-      protocolSection.innerHTML = Protocol();
-  });
+//   protocolLink.addEventListener('click', () => {
+//       transferSection.classList.add('hidden');
+//       protocolSection.classList.remove('hidden');
+//       protocolSection.innerHTML = Protocol();
+//   });
 
   sendBtn?.addEventListener('click', async () => {
       const ip = ipInput.value;
