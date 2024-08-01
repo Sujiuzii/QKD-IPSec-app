@@ -1,7 +1,6 @@
 # Node.js
 node_modules/
 dist/
-tscjs/
 .npm/
 
 # Logs
@@ -35,6 +34,7 @@ backend/server
 frontend/dist/
 frontend/out/
 frontend/build/
+frontend/tscjs/
 frontend/*.app
 frontend/*.exe
 frontend/*.deb

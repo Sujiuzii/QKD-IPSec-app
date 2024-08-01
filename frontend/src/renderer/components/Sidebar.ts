@@ -13,9 +13,9 @@ window.addEventListener('DOMContentLoaded', event => {
     const sidebarToggle = document.body.querySelector('#sidebarToggle');
     if (sidebarToggle) {
         // Uncomment Below to persist sidebar toggle between refreshes
-        // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
-        //     document.body.classList.toggle('sb-sidenav-toggled');
-        // }
+        if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
+            document.body.classList.toggle('sb-sidenav-toggled');
+        }
 
         const updateButtonText = () => {
             if (document.body.classList.contains('sb-sidenav-toggled')) {
