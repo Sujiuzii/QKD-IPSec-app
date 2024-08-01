@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Protocol Information</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="../assets/styles/styles.css" rel="stylesheet">
     <link href="../assets/styles/animations.css" rel="stylesheet">
     <link href="../assets/styles/sidebar.css" rel="stylesheet">
@@ -13,14 +14,14 @@
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
         <div class="border-end bg-white" id="sidebar-wrapper">
-            <div class="sidebar-heading border-bottom bg-light">量子安全文件传输</div>
+            <div class="sidebar-heading border-bottom bg-light"><i class="fa fa-cube" aria-hidden="true"></i>&nbsp;&nbsp;量子安全文件传输</div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./index.html">作品介绍</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./transfer.html">文件传输</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./parameters.html">实时参数</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./protocol.html">协议细节</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">帮助</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./contact.html">联系我们</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./index.html"><i class="fa fa-star" aria-hidden="true"></i>&nbsp; 作品介绍</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./transfer.html"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp; 文件传输</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./parameters.html"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;监控仪表</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./protocol.html"><i class="fa fa-lock" aria-hidden="true"></i>&nbsp;   协议细节</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!"><i class="fa fa-book" aria-hidden="true"></i>&nbsp; 帮助文档</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./contact.html"><i class="fa fa-comments" aria-hidden="true"></i>&nbsp;联系我们</a>
             </div>
         </div>
         <!-- Page content wrapper-->
@@ -28,13 +29,13 @@
             <!-- Top navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <div class="container-fluid">
-                    <button class="btn btn-secondary" id="sidebarToggle">⋯</button>
+                    <button class="btn btn-secondary" id="sidebarToggle"><i class="fa fa-angle-double-left" aria-hidden="true"></i></button>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="https://git.ustc.edu.cn">source</a></li>
+                            <!-- <li class="nav-item"><a class="nav-link" href="https://git.ustc.edu.cn">source</a></li> -->
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">文/A</a>
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-language" aria-hidden="true"></i></a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="#!">中文</a>
                                     <a class="dropdown-item" href="#!">English</a>
@@ -46,12 +47,46 @@
             </nav>
             <!-- Page content-->
             <div class="container-fluid">
-                <h2 class="text-center text-3xl font-bold text-gray-800 mb-6">使用说明</h2>
+                <h2 class="text-center text-3xl font-bold text-gray-800 mb-6"><i class="fa fa-book" aria-hidden="true"></i>&nbsp; 帮助文档：关于各个板块的使用说明</h2>
                 <div class="flex flex-wrap justify-center">
                     <div class="w-full lg:w-4/5 p-4 space-y-6">
                         <div class="bg-white shadow-lg rounded-lg p-6">
-                            <!-- <h2 class="text-xl font-semibold mb-4">Protocol Details</h2> -->
-                            <p class="text-gray-700">在文件传输版块指定传输对端的ip地址以及指定要传输的内容</p>
+                            <h2 class="text-xl font-semibold mb-4"><b>文件传输</b>&nbsp;  <i class="fa fa-paper-plane" aria-hidden="true"></i></h2>
+                            <p class="text-gray-700">
+                                文件传输模块是整个系统的核心模块，用户可以在这个板块上传文件并指定收信方，系统会自动将文件加密并传输给指定的收信方
+                            </p>
+                            <p class="text-gray-700">
+                                请在文件传输板块指定传输对端的ip地址以及指定要传输的内容，点击发送按钮即可完成文件传输。
+                                进程栏会显示当前的加密进度和传输进度。已经传输的文件会显示在历史记录中。
+                                该板块的右边部分展示了加密前与加密后的文件解码情况。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-center">
+                    <div class="w-full lg:w-4/5 p-4 space-y-6">
+                        <div class="bg-white shadow-lg rounded-lg p-6">
+                            <h2 class="text-xl font-semibold mb-4"><b>监控仪表</b>&nbsp;  <i class="fa fa-cogs" aria-hidden="true"></i></h2>
+                            <p class="text-gray-700">
+                                监控仪表板块展示整个系统包括密钥使用情况的实时的参数，并同时展示展示系统的实时性能
+                            </p>
+                            <p class="text-gray-700">
+                                每一个小板块均为当前小板块对应属性的实时数据仪表，灰色小字部分为对参数以及指标的详细介绍。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-center">
+                    <div class="w-full lg:w-4/5 p-4 space-y-6">
+                        <div class="bg-white shadow-lg rounded-lg p-6">
+                            <h2 class="text-xl font-semibold mb-4"><b>协议细节</b>&nbsp;  <i class="fa fa-lock" aria-hidden="true"></i></h2>
+                            <p class="text-gray-700">
+                                协议细节部分是对整个系统中核心协议部分的展示(本部分主要用于信息安全大赛作品赛中的协议展示)
+                            </p>
+                            <p class="text-gray-700">
+                                其中主要针对于 IPSec 中量子密钥的介入带来的效果的显示可视化验证。
+                                点击协议流程图中的每一条报文均可以查看对应的协议修改信息。
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -59,10 +94,10 @@
         </div>
     </div>
 
-    <script src="../dist/renderer/main.js"></script>
+    <script src="../tscjs/renderer/main.js"></script>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="../dist/renderer/components/Sidebar.js"></script>
+    <script src="../tscjs/renderer/components/Sidebar.js"></script>
 </body>
 </html>

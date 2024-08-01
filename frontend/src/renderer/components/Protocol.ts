@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (popup !== null) {
                 popup.style.display = 'block';
                 popup.style.top = `${message.getBoundingClientRect().top}px`;
-                popup.style.left = `${message.getBoundingClientRect().left + 20}px`;
+                popup.style.left = `${message.getBoundingClientRect().left}px`;
             }
         });
     });

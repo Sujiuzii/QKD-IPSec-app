@@ -1,18 +1,100 @@
-.sidebar {
+.timeline {
+  position: relative;
+  margin-top: 50px;
+  height: 500px;
+}
+.party {
+  width: 10%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.party.left {
+  left: 0;
+}
+.party.right {
+  right: 0;
+}
+.party h2 {
+  margin-bottom: 20px;
+}
+.party .line {
+  width: 2px;
+  height: 100%;
+  background: #000;
+}
+.message {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+.message:hover {
+  background-color: #f0f0f0;
+}
+.message:active {
+  transform: scale(0.95);
+}
+.message.left {
+  left: 10%;
+}
+.message.right {
+  right: 10%;
+}
+.message .message-arrow {
+  flex-shrink: 0;
+}
+.message.left .message-arrow {
+  margin-right: 10px;
+}
+.message.right .message-arrow {
+  margin-left: 10px;
+}
+.popup {
+  position: absolute;
+  /* background: #fff; */
+  /* border: 1px solid #ccc; */
+  /* padding: 10px; */
+  z-index: 100;
+  display: none;
+}
+.dark-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 200px;
+  width: 100%;
   height: 100%;
-  background-color: #333;
-  transition: transform 0.3s ease-in-out;
-  transform: translateX(-200px);
-}
-
-.sidebar.show {
-  transform: translateX(0);
-}
-
-.hidden {
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 150;
   display: none;
+}
+
+.video-container, .encrypted-video-container {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+}
+.video-container iframe, .encrypted-video-container .lock-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.lock-overlay {
+    background: url('https://img.icons8.com/ios-filled/100/lock-2.png') no-repeat center center;
+    background-size: 50px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
 }

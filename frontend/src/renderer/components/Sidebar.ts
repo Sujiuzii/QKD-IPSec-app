@@ -16,10 +16,23 @@ window.addEventListener('DOMContentLoaded', event => {
         // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
         //     document.body.classList.toggle('sb-sidenav-toggled');
         // }
+
+        const updateButtonText = () => {
+            if (document.body.classList.contains('sb-sidenav-toggled')) {
+                sidebarToggle.innerHTML = '<i class="fa fa-angle-double-right" aria-hidden="true"></i>';
+            } else {
+                sidebarToggle.innerHTML = '<i class="fa fa-angle-double-left" aria-hidden="true"></i>';
+            }
+        };
+
+        // Initial button text update
+        updateButtonText();
+
         sidebarToggle.addEventListener('click', event => {
             event.preventDefault();
             document.body.classList.toggle('sb-sidenav-toggled');
             localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled').toString());
+            updateButtonText();
         });
     }
 

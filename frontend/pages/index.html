@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secure File Transfer</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="../assets/styles/styles.css" rel="stylesheet">
     <link href="../assets/styles/animations.css" rel="stylesheet">
     <link href="../assets/styles/sidebar.css" rel="stylesheet">
@@ -13,13 +14,14 @@
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
         <div class="border-end bg-white" id="sidebar-wrapper">
-            <div class="sidebar-heading border-bottom bg-light">量子安全文件传输</div>
+            <div class="sidebar-heading border-bottom bg-light"><i class="fa fa-cube" aria-hidden="true"></i>&nbsp;&nbsp;量子安全文件传输</div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">作品介绍</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./transfer.html">文件传输</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./protocol.html">协议细节</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./help.html">帮助</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./contact.html">联系我们</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!"><i class="fa fa-star" aria-hidden="true"></i>&nbsp; 作品介绍</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./transfer.html"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp; 文件传输</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./parameters.html"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;监控仪表</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./protocol.html"><i class="fa fa-lock" aria-hidden="true"></i>&nbsp;   协议细节</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./help.html"><i class="fa fa-book" aria-hidden="true"></i>&nbsp; 帮助文档</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./contact.html"><i class="fa fa-comments" aria-hidden="true"></i>&nbsp;联系我们</a>
             </div>
         </div>
         <!-- Page content wrapper-->
@@ -27,13 +29,13 @@
             <!-- Top navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <div class="container-fluid">
-                    <button class="btn btn-secondary" id="sidebarToggle">⋯</button>
+                    <button class="btn btn-secondary" id="sidebarToggle"><i class="fa fa-angle-double-left" aria-hidden="true"></i></button>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="https://git.ustc.edu.cn">source</a></li>
+                            <!-- <li class="nav-item"><a class="nav-link" href="https://git.ustc.edu.cn">source</a></li> -->
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">文/A</a>
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-language" aria-hidden="true"></i></a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="#!">中文</a>
                                     <a class="dropdown-item" href="#!">English</a>
@@ -45,10 +47,11 @@
             </nav>
             <!-- Page content-->
             <div class="container-fluid">
-                <h2 class="text-center text-3xl font-bold text-gray-800 mb-6">融合 QKD 的 IPSec VPN 数据安全传输平台</h2>
+                <h2 class="text-center text-3xl font-bold text-gray-800 mb-6"><i class="fa fa-star" aria-hidden="true"></i>&nbsp; 作品介绍：融合 QKD 的 IPSec VPN 数据安全传输平台</h2>
                 <div class="flex flex-wrap justify-center">
                     <div class="w-full lg:w-4/5 p-4 space-y-6">
                         <div class="bg-white shadow-lg rounded-lg p-6">
+                            <h2 class="text-xl font-semibold mb-4"><b>项目背景</b>&nbsp;  <i class="fa fa-desktop" aria-hidden="true"></i></h2>
                             <p>
                                 随着数字经济的高速发展，数据的广泛和实时流动带来了严重的数据传输安全
                                 风险，数据传输安全已成为数据全生命周期安全中至关重要的一环。IPsec 协议是当
@@ -56,14 +59,49 @@
                                 统的基于计算安全性的密码学技术受到严重冲击，IPSec 协议所提供的安全性遭遇了
                                 严重挑战。通过使用量子密钥分发 QKD 技术为通讯双
                                 方提供的信息论安全的会话秘钥，可以对 IPSec 协议中的传统密码学操作原语进行替
-                                换，为数据传输通道提供抵抗量子计算的安全性保护。基于此，本研究旨在通过将
-                                QKD 技术与 IPSec 协议相结合，构建融合量子密钥的 IPSec VPN 数据安全传输服务
-                                平台，该平台由融合量子密钥的 IPSec VPN 网关应用和相应的 QKDN 密钥管理软件
-                                两个部分组成
-                            </p>
+                                换，为数据传输通道提供抵抗量子计算的安全性保护。                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 实现方式 -->
+                    <div class="w-full lg:w-4/5 p-4 space-y-6">
+                        <div class="bg-white shadow-lg rounded-lg p-6">
+                            <h2 class="text-xl font-semibold mb-4"><b>功能模块</b>&nbsp;  <i class="fa fa-puzzle-piece" aria-hidden="true"></i></h2>
                             <p>
+                                本作品旨在通过将 QKD 技术与 IPSec 协议相结合，构建融合量子密钥的 IPSec VPN 数据安全传输服务
+                                平台，该平台由融合量子密钥的 IPSec VPN 网关应用和相应的 QKDN 密钥管理软件
+                                两个部分组成。
+                                融合量子密钥的 IPSec VPN 网关应用主要由三个模块组成，分别是安全 IKE 协
+                                议模块、动态密钥派生模块和自适应 OPT 加密模块。在安全 IKE 协议模块中，为了
+                                针对性实现抗量子计算安全性，本作品针对 IKE 协议密钥交换、认证、重协商三个重
+                                要阶段进行了融合量子密钥的适应性改进。在动态密钥派生模块中，本作品使用量子
+                                密钥不断更新 SA 中的加密密钥和完整性保护密钥，使得实际数据传输过程的安全性
+                                得到提升，并通过实时调节量子密钥的派生策略，实现在量子密钥供应速率低的情况
+                                下仍然能够满足高带宽数据传输要求，保持稳健性。在自适应 OPT 加密模块中，本
+                                作品设计了使用扩展量子密钥对数据进行 OPT 加密和完整性保护的方案，根据需求
+                                速率调节密钥派生参数，以适应动态数据传输需求变化，在安全性和传输效率之间达
+                                到平衡。
+                                QKDN 密钥管理软件主要由密钥管理模块和路由中继模块两部分组成。在密钥
+                                管理模块中，为了正确、高效管理 QKD 网络可用密钥资源，本作品分别设计了密钥
+                                存储管理、密钥生存周期管理、密钥使用同步性管理等功能。在路由中继模块中，针
+                                对 QKD 网络中链路资源的动态特性，本作品设计了基于按需探测的 QKD 网络路由
+                                框架，并在此基础上设计了基于前向探测-后向中继的负载均衡路由方案。
                                 本平台提供基于量子密钥的 IPSec VPN 数据安全传输服务，用户可以通过该平台安全传输
                                 数据。此外，本平台展示了结合量子密钥分发技术的 IPSec 协议细节。
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <!-- 达到的效果 -->
+                    <div class="w-full lg:w-4/5 p-4 space-y-6">
+                        <div class="bg-white shadow-lg rounded-lg p-6">
+                            <h2 class="text-xl font-semibold mb-4"><b>实现效果</b>&nbsp;  <i class="fa fa-bomb" aria-hidden="true"></i></h2>
+                            <p>
+                                本作品对五个模块进行了功能验证和性能测试，测试结果表明本作
+                                品成功设计了融合量子密钥的 IPSec 协议框架并实现了对 QKD 网络中密钥资源的高
+                                效管理，能够在数据传输过程提供抗量子计算的机密性保护、完整性保护和可用性保
+                                护，为安全传输通信领域提供了更加安全、高效的解决方案。
                             </p>
                         </div>
                     </div>
@@ -71,10 +109,10 @@
             </div>
         </div>
     </div>
-    <script src="../dist/renderer/main.js"></script>
+    <script src="../tscjs/renderer/main.js"></script>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="../dist/renderer/components/Sidebar.js"></script>
+    <script src="../tscjs/renderer/components/Sidebar.js"></script>
 </body>
 </html>

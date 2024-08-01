@@ -5,106 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Protocol Information</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="../assets/styles/styles.css" rel="stylesheet">
     <link href="../assets/styles/animations.css" rel="stylesheet">
     <link href="../assets/styles/sidebar.css" rel="stylesheet">
-    <style>
-        .timeline {
-            position: relative;
-            margin-top: 50px;
-            height: 500px;
-        }
-        .party {
-            width: 10%;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .party.left {
-            left: 0;
-        }
-        .party.right {
-            right: 0;
-        }
-        .party h2 {
-            margin-bottom: 20px;
-        }
-        .party .line {
-            width: 2px;
-            height: 100%;
-            background: #000;
-        }
-        .message {
-            position: absolute;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-        .message.left {
-            left: 10%;
-        }
-        .message.right {
-            right: 10%;
-        }
-        .message .message-arrow {
-            flex-shrink: 0;
-        }
-        .message.left .message-arrow {
-            margin-right: 10px;
-        }
-        .message.right .message-arrow {
-            margin-left: 10px;
-        }
-        .popup {
-            display: none;
-            position: absolute;
-            width: auto;
-            z-index: 1000;
-        }
-        .popup-center {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            padding: 20px;
-            background: #fff;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            z-index: 1100;
-        }
-        .show {
-            display: block;
-        }
-        .dark-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 150;
-            display: none;
-        }
-    </style>
 </head>
 <body class="bg-gray-100 font-satoshi">
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
         <div class="border-end bg-white" id="sidebar-wrapper">
-            <div class="sidebar-heading border-bottom bg-light">量子安全文件传输</div>
+            <div class="sidebar-heading border-bottom bg-light"><i class="fa fa-cube" aria-hidden="true"></i>&nbsp;&nbsp;量子安全文件传输</div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./index.html">作品介绍</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./transfer.html">文件传输</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./parameters.html">实时参数</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">协议细节</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./help.html">帮助</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./contact.html">联系我们</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./index.html"><i class="fa fa-star" aria-hidden="true"></i>&nbsp; 作品介绍</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./transfer.html"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp; 文件传输</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./parameters.html"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;监控仪表</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!"><i class="fa fa-lock" aria-hidden="true"></i>&nbsp;   协议细节</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./help.html"><i class="fa fa-book" aria-hidden="true"></i>&nbsp; 帮助文档</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./contact.html"><i class="fa fa-comments" aria-hidden="true"></i>&nbsp;联系我们</a>
             </div>
         </div>
         <!-- Page content wrapper-->
@@ -112,13 +29,13 @@
             <!-- Top navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <div class="container-fluid">
-                    <button class="btn btn-secondary" id="sidebarToggle">⋯</button>
+                    <button class="btn btn-secondary" id="sidebarToggle"><i class="fa fa-angle-double-left" aria-hidden="true"></i></button>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="https://git.ustc.edu.cn">source</a></li>
+                            <!-- <li class="nav-item"><a class="nav-link" href="https://git.ustc.edu.cn">source</a></li> -->
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">文/A</a>
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-language" aria-hidden="true"></i></a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="#!">中文</a>
                                     <a class="dropdown-item" href="#!">English</a>
@@ -130,10 +47,9 @@
             </nav>
             <!-- Page content-->
             <div class="container-fluid">
-                <h2 class="text-center text-3xl font-bold text-gray-800 mb-6">结合 QKD 的 IPSec 协议细节</h2>
+                <h2 class="text-center text-3xl font-bold text-gray-800 mb-6"><i class="fa fa-lock" aria-hidden="true"></i>&nbsp;   协议细节：结合 QKD 的新 IPSec 协议流程展示与抓包分析</h2>
                 <div class="flex flex-wrap justify-center">
                     <div class="w-full lg:w-4/5 p-4 space-y-6">
-                        <h1 class="text-center text-3xl font-bold text-gray-800 mb-6">IPSec IKEv2 Protocol Timeline</h1>
                         <div class="timeline" id="timeline">
                             <div class="party left">
                                 <h2 class="text-xl font-semibold">Alice</h2>
@@ -149,10 +65,10 @@
                                     <line x1="0" y1="10" x2="100" y2="10" stroke="black" stroke-width="2"/>
                                     <polygon points="100,10 90,5 90,15" fill="black"/>
                                 </svg>
-                                <p>Message 1</p>
+                                <span>Initiator SPI</span>
                             </div>
                             <div class="message right" style="top: 40%;" data-message="2">
-                                <p>Message 2</p>
+                                <span>Responder SPI</span>
                                 <svg class="message-arrow" width="100" height="20">
                                     <line x1="0" y1="10" x2="100" y2="10" stroke="black" stroke-width="2"/>
                                     <polygon points="0,10 10,5 10,15" fill="black"/>
@@ -201,11 +117,11 @@
         <p>Details for Phase 3 packet contents.</p>
     </div>
 
-    <script src="../dist/renderer/components/Protocol.js"></script>
-    <script src="../dist/renderer/main.js"></script>
+    <script src="../tscjs/renderer/components/Protocol.js"></script>
+    <script src="../tscjs/renderer/main.js"></script>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="../dist/renderer/components/Sidebar.js"></script>
+    <script src="../tscjs/renderer/components/Sidebar.js"></script>
 </body>
 </html>
