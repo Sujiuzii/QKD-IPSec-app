@@ -59,35 +59,66 @@
                                 <div class="line"></div>
                             </div>
                             <!-- Messages -->
-                            <div class="message left" style="top: 20%;" data-message="1">
-                                <svg class="message-arrow" width="100" height="20">
-                                    <line x1="0" y1="10" x2="100" y2="10" stroke="black" stroke-width="2"/>
-                                    <polygon points="100,10 90,5 90,15" fill="black"/>
+                            <!-- ike_sa_init-->
+                            <div class="message left" style="top: 10%;" data-message="1">
+                                <svg class="message-arrow" width="200" height="20">
+                                    <line x1="0" y1="10" x2="200" y2="10" stroke="black" stroke-width="2"/>
+                                    <polygon points="200,10 190,5 190,15" fill="black"/>
                                 </svg>
-                                <span>Initiator SPI</span>
+                                <span>IKE_SA_INIT消息1</span>
                             </div>
-                            <div class="message right" style="top: 40%;" data-message="2">
-                                <span>Responder SPI</span>
-                                <svg class="message-arrow" width="100" height="20">
-                                    <line x1="0" y1="10" x2="100" y2="10" stroke="black" stroke-width="2"/>
+                            <div class="message right" style="top: 20%;" data-message="2">
+                                <span>IKE_SA_INIT消息2</span>
+                                <svg class="message-arrow" width="200" height="20">
+                                    <line x1="0" y1="10" x2="200" y2="10" stroke="black" stroke-width="2"/>
+                                    <polygon points="0,10 10,5 10,15" fill="black"/>
+                                </svg>
+                            </div>
+                            <!-- diffie-hellman-->
+                            <div class="message left" style="top: 30%;" data-message="3">
+                                <svg class="message-arrow" width="200" height="20">
+                                    <line x1="0" y1="10" x2="200" y2="10" stroke="black" stroke-width="2"/>
+                                    <polygon points="200,10 190,5 190,15" fill="black"/>
+                                </svg>
+                                <span>DH消息1</span>
+                            </div>
+                            <div class="message right" style="top: 40%;" data-message="4">
+                                <span>DH消息2</span>
+                                <svg class="message-arrow" width="200" height="20">
+                                    <line x1="0" y1="10" x2="200" y2="10" stroke="black" stroke-width="2"/>
+                                    <polygon points="0,10 10,5 10,15" fill="black"/>
+                                </svg>
+                            </div>
+                            <!-- ike_auth-->
+                            <div class="message left" style="top: 50%;" data-message="5">
+                                <svg class="message-arrow" width="200" height="20">
+                                    <line x1="0" y1="10" x2="200" y2="10" stroke="black" stroke-width="2"/>
+                                    <polygon points="200,10 190,5 190,15" fill="black"/>
+                                </svg>
+                                <span>IKE_AUTH消息1</span>
+                            </div>
+                            <div class="message right" style="top: 60%;" data-message="6">
+                                <span>IKE_AUTH消息2</span>
+                                <svg class="message-arrow" width="200" height="20">
+                                    <line x1="0" y1="10" x2="200" y2="10" stroke="black" stroke-width="2"/>
                                     <polygon points="0,10 10,5 10,15" fill="black"/>
                                 </svg>
                             </div>
                         </div>
-                        <div class="dark-overlay" id="darkOverlay"></div>
+                        <!-- <div class="dark-overlay" id="darkOverlay"></div> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!--弹出窗口-->
+    <!-- popups-->
     <div class="popup" id="popup1">
         <div flex flex-wrap justify-center>
             <div class="w-full lg:w-5/5 p-4 space-y-6">
                 <div class="bg-white shadow-lg rounded-lg p-6">
-                    <h2 class="text-xl font-semibold mb-4">Phase 1: Negotiation</h2>
-                    <p>Details for Phase 1 packet contents.</p>
+                    <h2 class="text-xl font-semibold mb-4"><b>阶段1: 密钥参数协商</b></h2>
+                    <p>此阶段本协议与原IKEv2协议一致，交换用于接下来信息的密钥材料等等内容</p>
                 </div>
             </div>
         </div>
@@ -96,25 +127,97 @@
         <div flex flex-wrap justify-center>
             <div class="w-full lg:w-5/5 p-4 space-y-6">
                 <div class="bg-white shadow-lg rounded-lg p-6">
-                    <h2 class="text-xl font-semibold mb-4">Phase 2: Key Exchange</h2>
-                    <p>Details for Phase 2 packet contents.</p>
-                    <p>
-                        这里有更多内容需要补充
-                        这里有更多内容需要补充
-                        这里有更多内容需要补充
-                        这里有更多内容需要补充
-                        这里有更多内容需要补充
-                        这里有更多内容需要补充
-                        这里有更多内容需要补充
-                        这里有更多内容需要补充
-                        这里有更多内容需要补充
-                    </p>
+                    <h2 class="text-xl font-semibold mb-4"><b>阶段1: 密钥参数协商</b></h2>
+                    <p>此阶段本协议与原IKEv2协议一致，交换用于接下来信息的密钥材料等等内容</p>
                 </div>
             </div>
         </div>
     </div>
     <div class="popup" id="popup3">
-        <p>Details for Phase 3 packet contents.</p>
+        <div flex flex-wrap justify-center>
+            <div class="w-full lg:w-5/5 p-4 space-y-6">
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <h2 class="text-xl font-semibold mb-4"><b>阶段2: DH密钥交换</b></h2>
+                    <p><b>动态调节模式</b></p>
+                    <p>
+                        在 IKE_SA_ INIT 消息交换后，双方的 IPSec 进程向各自的量子密钥供应接口请求
+                        与原有 D-H 协议所生成的密钥长度相同的量子密钥
+                    </p>
+                    <p>
+                        量子密钥接口进行双方量子密钥同步操作，若存在足够的量子密钥则返回相应量
+                        子密钥 QKEY，双方 IPSec 进程收到 QKEY 后用其取代原本的 DH 密钥
+                    </p>
+                    <p>
+                        若无法提供足够的量子密钥，则量子密钥接口返回 Null，此时双方 IPSec 进程继
+                        续使用原有的 DH 密钥完成 SKEYSEED 的生成
+                    </p>
+                    <p><b>一次一密模式</b></p>
+                    <p>
+                        一次一密模式中，更多地考虑了量子密钥的安全性，强制要求双方的 IPSec 进程
+                        向量子密钥供应接口请求新的量子密钥，这降低了鲁棒性，但是适用于对安全性
+                        要求较高的场景
+                    </p>
+                    <p>
+                        <b>应当保证底层密钥生成模块生成的量子密钥 QKEY 与 DH 密钥交换得到的密钥一致</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="popup4">
+        <div flex flex-wrap justify-center>
+            <div class="w-full lg:w-5/5 p-4 space-y-6">
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <h2 class="text-xl font-semibold mb-4"><b>阶段2: DH密钥交换</b></h2>
+                    <p><b>动态调节模式</b></p>
+                    <p>
+                        在 IKE_SA_ INIT 消息交换后，双方的 IPSec 进程向各自的量子密钥供应接口请求
+                        与原有 D-H 协议所生成的密钥长度相同的量子密钥
+                    </p>
+                    <p>
+                        量子密钥接口进行双方量子密钥同步操作，若存在足够的量子密钥则返回相应量
+                        子密钥 QKEY，双方 IPSec 进程收到 QKEY 后用其取代原本的 DH 密钥
+                    </p>
+                    <p>
+                        若无法提供足够的量子密钥，则量子密钥接口返回 Null，此时双方 IPSec 进程继
+                        续使用原有的 DH 密钥完成 SKEYSEED 的生成
+                    </p>
+                    <p><b>一次一密模式</b></p>
+                    <p>
+                        一次一密模式中，更多地考虑了量子密钥的安全性，强制要求双方的 IPSec 进程
+                        向量子密钥供应接口请求新的量子密钥，这降低了鲁棒性，但是适用于对安全性
+                        要求较高的场景
+                    </p>
+                    <p>
+                        <b>应当保证底层密钥生成模块生成的量子密钥 QKEY 与 DH 密钥交换得到的密钥一致</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="popup5">
+        <div flex flex-wrap justify-center>
+            <div class="w-full lg:w-5/5 p-4 space-y-6">
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <h2 class="text-xl font-semibold mb-4"><b>阶段3: 建立安全关联</b></h2>
+                    <p>
+                        本阶段中将使用量子密钥对于预共享密钥进行更新，双方 IPSec 进程生成 IKE_SA 和 CHILD_SA
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="popup6">
+        <div flex flex-wrap justify-center>
+            <div class="w-full lg:w-5/5 p-4 space-y-6">
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <h2 class="text-xl font-semibold mb-4"><b>阶段3: 建立安全关联</b></h2>
+                    <p>
+                        本阶段中将使用量子密钥对于预共享密钥进行更新，双方 IPSec 进程生成 IKE_SA 和 CHILD_SA
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="../tscjs/renderer/components/Protocol.js"></script>
