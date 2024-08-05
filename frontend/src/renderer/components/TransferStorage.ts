@@ -1,9 +1,10 @@
+const { ipcRenderer } = require('electron');
+
 document.addEventListener('DOMContentLoaded', () => {
     // 元素选择
     const fileInput = document.getElementById('fileInput') as HTMLInputElement;
     const ipInput = document.getElementById('ipInput') as HTMLInputElement;
     const ipVersion = document.getElementById('ipVersion') as HTMLSelectElement;
-    // const keyOption = document.getElementById('keyOption') as HTMLSelectElement;
     const transferProgress = document.getElementById('transferProgress');
     const fileList = document.getElementById('fileList') as HTMLElement;
 
@@ -13,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         ipInput.value = pageState.ip || '';
         ipVersion.value = pageState.ipVersion || 'IPv4';
-        // keyOption.value = pageState.keyOption || 'noOTP';
         if (transferProgress) {
             transferProgress.style.width = pageState.transferProgress || '0%';
         }
@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
             pageState = {
                 ip: ipInput.value,
                 ipVersion: ipVersion.value,
-                // keyOption: keyOption.value,
                 transferProgress: transferProgress.style.width,
                 fileList: Array.from(fileList.querySelectorAll('li')).map(li => li.textContent),
                 fileName: fileName
@@ -49,11 +48,15 @@ document.addEventListener('DOMContentLoaded', () => {
             pageState = {
                 ip: ipInput.value,
                 ipVersion: ipVersion.value,
-                // keyOption: keyOption.value,
                 fileList: Array.from(fileList.querySelectorAll('li')).map(li => li.textContent),
                 fileName: fileName
             };
         }
         localStorage.setItem('pageState', JSON.stringify(pageState));
+    });
+
+    // 监听主进程的消息并清除 localStorage
+    ipcRenderer.on('clear-local-storage', () => {
+        localStorage.removeItem('pageState');
     });
 });

@@ -45,31 +45,64 @@
             </nav>
             <!-- Page content-->
             <div class="container-fluid">
-                <h2 class="text-center text-3xl font-bold text-gray-800 mb-6"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;监控仪表：监控网络通讯过程中的各种关键参数以及性能指标</h2>
+                <h1 class="text-center text-3xl font-bold text-gray-800 mb-6"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;监控仪表：监控网络通讯过程中的各种关键参数以及性能指标</h2>
                 <div class="flex flex-wrap justify-center">
                     <div class="w-full lg:w-2/5 p-4 space-y-6">
-                        <div class="bg-white shadow-lg rounded-lg p-6">
-                            <h2 class="text-xl font-semibold mb-4"><b>密钥使用情况&nbsp;  <i class="fa fa-key" aria-hidden="true"></i></b></h2>
+                        <div class="bg-white rounded-lg shadow-lg p-4">
+                            <h4><b>密钥动态调节模式</b></h4>
+                            <div class="bg-white rounded-lg p-6">
+                                <h2 class="text-xl font-semibold mb-4"><b>已使用的SA密钥数&nbsp;  <i class="fa fa-key" aria-hidden="true"></i></b></h2>
+                            </div>
+                            &ThinSpace;
+                            <div class="bg-white rounded-lg p-6">
+                                <h2 class="text-xl font-semibold mb-4"><b>密钥池大小&nbsp;  <i class="fa fa-archive" aria-hidden="true"></i></b></h2>
+                            </div>
+                            &ThinSpace;
+                            <div class="bg-white rounded-lg p-6">
+                                <h2 class="text-xl font-semibold mb-4"><b>当前的密钥衍生参数&nbsp;  <i class="fa fa-archive" aria-hidden="true"></i></b></h2>
+                            </div>
+                            &ThinSpace;
+                            <div class="bg-white rounded-lg p-6">
+                                <h2 class="text-xl font-semibold mb-4"><b>当前QKEY(base64)&nbsp;  <i class="fa fa-archive" aria-hidden="true"></i></b></h2>
+                            </div>
                         </div>
                     </div>
                     <div class="w-full lg:w-2/5 p-4 space-y-6">
-                        <div class="bg-white shadow-lg rounded-lg p-6">
-                            <h2 class="text-xl font-semibold mb-4"><b>密钥余量&nbsp;  <i class="fa fa-archive" aria-hidden="true"></i></b></h2>
+                        <div class="bg-white rounded-lg shadow-lg p-4">
+                            <h4><b>一次一密增强模式</b></h4>
+                            <div class="bg-white rounded-lg p-6">
+                                <h2 class="text-xl font-semibold mb-4"><b>已使用的SA密钥数&nbsp;  <i class="fa fa-key" aria-hidden="true"></i></b></h2>
+                            </div>
+                            &ThinSpace;
+                            <div class="bg-white rounded-lg p-6">
+                                <h2 class="text-xl font-semibold mb-4"><b>密钥池大小&nbsp;  <i class="fa fa-archive" aria-hidden="true"></i></b></h2>
+                            </div>
+                            &ThinSpace;
+                            <div class="bg-white rounded-lg p-6">
+                                <h2 class="text-xl font-semibold mb-4"><b>当前的密钥衍生参数&nbsp;  <i class="fa fa-archive" aria-hidden="true"></i></b></h2>
+                            </div>
+                            &ThinSpace;
+                            <div class="bg-white rounded-lg p-6">
+                                <h2 class="text-xl font-semibold mb-4"><b>当前QKEY(base64)&nbsp;  <i class="fa fa-archive" aria-hidden="true"></i></b></h2>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-wrap justify-center">
+                <!-- <div class="flex flex-wrap justify-center">
                     <div class="w-full lg:w-4/5 p-4 space-y-6">
                         <div class="bg-white shadow-lg rounded-lg p-6">
                             <h2 class="text-xl font-semibold mb-4"><b>网络带宽</b>&nbsp;  <i class="fa fa-wifi" aria-hidden="true"></i></h2>
+                            <button type="button" class="w-full bg-gray-100 font-semibold rounded-md py-2" id="load-darkstat">实时带宽</button>
+                            <div id="darkstat-container"></div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
 
     <script src="../tscjs/renderer/main.js"></script>
+    <script src="../tscjs/renderer/components/darkstat.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../tscjs/renderer/components/Sidebar.js"></script>
 </body>

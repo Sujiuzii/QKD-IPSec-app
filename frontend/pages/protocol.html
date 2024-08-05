@@ -49,60 +49,63 @@
                 <h2 class="text-center text-3xl font-bold text-gray-800 mb-6"><i class="fa fa-lock" aria-hidden="true"></i>&nbsp;   协议细节：结合 QKD 的新 IPSec 协议流程展示与抓包分析</h2>
                 <div class="flex flex-wrap justify-center">
                     <div class="w-full lg:w-4/5 p-4 space-y-6">
-                        <div class="timeline" id="timeline">
-                            <div class="party left">
-                                <h2 class="text-xl font-semibold">Alice</h2>
-                                <div class="line"></div>
-                            </div>
-                            <div class="party right">
-                                <h2 class="text-xl font-semibold">Bob</h2>
-                                <div class="line"></div>
-                            </div>
-                            <!-- Messages -->
-                            <!-- ike_sa_init-->
-                            <div class="message left" style="top: 10%;" data-message="1">
-                                <svg class="message-arrow" width="200" height="20">
-                                    <line x1="0" y1="10" x2="200" y2="10" stroke="black" stroke-width="2"/>
-                                    <polygon points="200,10 190,5 190,15" fill="black"/>
-                                </svg>
-                                <span>IKE_SA_INIT消息1</span>
-                            </div>
-                            <div class="message right" style="top: 20%;" data-message="2">
-                                <span>IKE_SA_INIT消息2</span>
-                                <svg class="message-arrow" width="200" height="20">
-                                    <line x1="0" y1="10" x2="200" y2="10" stroke="black" stroke-width="2"/>
-                                    <polygon points="0,10 10,5 10,15" fill="black"/>
-                                </svg>
-                            </div>
-                            <!-- diffie-hellman-->
-                            <div class="message left" style="top: 30%;" data-message="3">
-                                <svg class="message-arrow" width="200" height="20">
-                                    <line x1="0" y1="10" x2="200" y2="10" stroke="black" stroke-width="2"/>
-                                    <polygon points="200,10 190,5 190,15" fill="black"/>
-                                </svg>
-                                <span>DH消息1</span>
-                            </div>
-                            <div class="message right" style="top: 40%;" data-message="4">
-                                <span>DH消息2</span>
-                                <svg class="message-arrow" width="200" height="20">
-                                    <line x1="0" y1="10" x2="200" y2="10" stroke="black" stroke-width="2"/>
-                                    <polygon points="0,10 10,5 10,15" fill="black"/>
-                                </svg>
-                            </div>
-                            <!-- ike_auth-->
-                            <div class="message left" style="top: 50%;" data-message="5">
-                                <svg class="message-arrow" width="200" height="20">
-                                    <line x1="0" y1="10" x2="200" y2="10" stroke="black" stroke-width="2"/>
-                                    <polygon points="200,10 190,5 190,15" fill="black"/>
-                                </svg>
-                                <span>IKE_AUTH消息1</span>
-                            </div>
-                            <div class="message right" style="top: 60%;" data-message="6">
-                                <span>IKE_AUTH消息2</span>
-                                <svg class="message-arrow" width="200" height="20">
-                                    <line x1="0" y1="10" x2="200" y2="10" stroke="black" stroke-width="2"/>
-                                    <polygon points="0,10 10,5 10,15" fill="black"/>
-                                </svg>
+                        <div class="bg-white shadow-lg rounded-lg p-6">
+                            <div class="timeline" id="timeline">
+                                <div class="party left">
+                                    <h2 class="text-xl font-semibold">Alice</h2>
+                                    <!-- use bold line here-->
+                                    <div class="line"></div>
+                                </div>
+                                <div class="party right">
+                                    <h2 class="text-xl font-semibold">Bob</h2>
+                                    <div class="line"></div>
+                                </div>
+                                <!-- Messages -->
+                                <!-- ike_sa_init-->
+                                <div class="message left" style="top: 15%;" data-message="1">
+                                    <svg class="message-arrow" width="200" height="20">
+                                        <line x1="0" y1="10" x2="200" y2="10" stroke="black" stroke-width="2"/>
+                                        <polygon points="200,10 190,5 190,15" fill="black"/>
+                                    </svg>
+                                    <span>IKE_SA_INIT消息1</span>
+                                </div>
+                                <div class="message right" style="top: 30%;" data-message="2">
+                                    <span>IKE_SA_INIT消息2</span>
+                                    <svg class="message-arrow" width="200" height="20">
+                                        <line x1="0" y1="10" x2="200" y2="10" stroke="black" stroke-width="2"/>
+                                        <polygon points="0,10 10,5 10,15" fill="black"/>
+                                    </svg>
+                                </div>
+                                <!-- diffie-hellman-->
+                                <div class="message left" style="top: 45%;" data-message="3">
+                                    <svg class="message-arrow" width="200" height="20">
+                                        <line x1="0" y1="10" x2="200" y2="10" stroke="black" stroke-width="2"/>
+                                        <polygon points="200,10 190,5 190,15" fill="black"/>
+                                    </svg>
+                                    <span>DH消息1</span>
+                                </div>
+                                <div class="message right" style="top: 60%;" data-message="4">
+                                    <span>DH消息2</span>
+                                    <svg class="message-arrow" width="200" height="20">
+                                        <line x1="0" y1="10" x2="200" y2="10" stroke="black" stroke-width="2"/>
+                                        <polygon points="0,10 10,5 10,15" fill="black"/>
+                                    </svg>
+                                </div>
+                                <!-- ike_auth-->
+                                <div class="message left" style="top: 75%;" data-message="5">
+                                    <svg class="message-arrow" width="200" height="20">
+                                        <line x1="0" y1="10" x2="200" y2="10" stroke="black" stroke-width="2"/>
+                                        <polygon points="200,10 190,5 190,15" fill="black"/>
+                                    </svg>
+                                    <span>IKE_AUTH消息1</span>
+                                </div>
+                                <div class="message right" style="top: 90%;" data-message="6">
+                                    <span>IKE_AUTH消息2</span>
+                                    <svg class="message-arrow" width="200" height="20">
+                                        <line x1="0" y1="10" x2="200" y2="10" stroke="black" stroke-width="2"/>
+                                        <polygon points="0,10 10,5 10,15" fill="black"/>
+                                    </svg>
+                                </div>
                             </div>
                         </div>
                         <!-- <div class="dark-overlay" id="darkOverlay"></div> -->
