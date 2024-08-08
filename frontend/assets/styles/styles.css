@@ -64,7 +64,7 @@
   z-index: 100;
   display: none;
 }
-.dark-overlay {
+/* .dark-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -73,7 +73,7 @@
   background: rgba(0, 0, 0, 0.5);
   z-index: 150;
   display: none;
-}
+} */
 
 .video-container, .encrypted-video-container {
     width: 100%;

@@ -1,10 +1,7 @@
-FROM node:12
+FROM node
 
 COPY . /app
 
-WORKDIR /app
+WORKDIR /app/frontend
 
-RUN npm install && \
-    npm run build
-
-CMD [ "npm run start" ]
+CMD [ "bash" ]

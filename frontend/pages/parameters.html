@@ -19,6 +19,7 @@
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./transfer.html"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp; 文件传输</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;监控仪表</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./protocol.html"><i class="fa fa-lock" aria-hidden="true"></i>&nbsp;   协议细节</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./topo.html"><i class="fa fa-magic" aria-hidden="true"></i>&nbsp; 网络拓扑</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./help.html"><i class="fa fa-book" aria-hidden="true"></i>&nbsp; 帮助文档</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./contact.html"><i class="fa fa-comments" aria-hidden="true"></i>&nbsp;联系我们</a>
             </div>
@@ -49,54 +50,45 @@
                 <div class="flex flex-wrap justify-center">
                     <div class="w-full lg:w-2/5 p-4 space-y-6">
                         <div class="bg-white rounded-lg shadow-lg p-4">
-                            <h4><b>密钥动态调节模式</b></h4>
+                            <h4><b>一次一密模式</b></h4>
                             <div class="bg-white rounded-lg p-6">
-                                <h2 class="text-xl font-semibold mb-4"><b>已使用的SA密钥数&nbsp;  <i class="fa fa-key" aria-hidden="true"></i></b></h2>
+                                <h2 class="text-xl font-semibold mb-4"><b>已使用量子密钥数&nbsp;  <i class="fa fa-key" aria-hidden="true"></i></b></h2>
                             </div>
                             &ThinSpace;
                             <div class="bg-white rounded-lg p-6">
-                                <h2 class="text-xl font-semibold mb-4"><b>密钥池大小&nbsp;  <i class="fa fa-archive" aria-hidden="true"></i></b></h2>
+                                <h2 class="text-xl font-semibold mb-4"><b>当前连接密钥池大小&nbsp;  <i class="fa fa-archive" aria-hidden="true"></i></b></h2>
                             </div>
                             &ThinSpace;
                             <div class="bg-white rounded-lg p-6">
-                                <h2 class="text-xl font-semibold mb-4"><b>当前的密钥衍生参数&nbsp;  <i class="fa fa-archive" aria-hidden="true"></i></b></h2>
+                                <h2 class="text-xl font-semibold mb-4"><b>动态密钥衍生参数&nbsp;  <i class="fa fa-archive" aria-hidden="true"></i></b></h2>
                             </div>
                             &ThinSpace;
                             <div class="bg-white rounded-lg p-6">
-                                <h2 class="text-xl font-semibold mb-4"><b>当前QKEY(base64)&nbsp;  <i class="fa fa-archive" aria-hidden="true"></i></b></h2>
+                                <h2 class="text-xl font-semibold mb-4"><b>正在使用的QKEY&nbsp;  <i class="fa fa-archive" aria-hidden="true"></i></b></h2>
                             </div>
                         </div>
                     </div>
                     <div class="w-full lg:w-2/5 p-4 space-y-6">
                         <div class="bg-white rounded-lg shadow-lg p-4">
-                            <h4><b>一次一密增强模式</b></h4>
+                            <h4><b>动态调整模式</b></h4>
                             <div class="bg-white rounded-lg p-6">
-                                <h2 class="text-xl font-semibold mb-4"><b>已使用的SA密钥数&nbsp;  <i class="fa fa-key" aria-hidden="true"></i></b></h2>
+                                <h2 class="text-xl font-semibold mb-4"><b>已使用量子密钥数&nbsp;  <i class="fa fa-key" aria-hidden="true"></i></b></h2>
                             </div>
                             &ThinSpace;
                             <div class="bg-white rounded-lg p-6">
-                                <h2 class="text-xl font-semibold mb-4"><b>密钥池大小&nbsp;  <i class="fa fa-archive" aria-hidden="true"></i></b></h2>
+                                <h2 class="text-xl font-semibold mb-4"><b>当前连接密钥池大小&nbsp;  <i class="fa fa-archive" aria-hidden="true"></i></b></h2>
                             </div>
                             &ThinSpace;
                             <div class="bg-white rounded-lg p-6">
-                                <h2 class="text-xl font-semibold mb-4"><b>当前的密钥衍生参数&nbsp;  <i class="fa fa-archive" aria-hidden="true"></i></b></h2>
+                                <h2 class="text-xl font-semibold mb-4"><b>密钥阈值参数&nbsp;  <i class="fa fa-archive" aria-hidden="true"></i></b></h2>
                             </div>
                             &ThinSpace;
                             <div class="bg-white rounded-lg p-6">
-                                <h2 class="text-xl font-semibold mb-4"><b>当前QKEY(base64)&nbsp;  <i class="fa fa-archive" aria-hidden="true"></i></b></h2>
+                                <h2 class="text-xl font-semibold mb-4"><b>正在使用的QKEY&nbsp;  <i class="fa fa-archive" aria-hidden="true"></i></b></h2>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="flex flex-wrap justify-center">
-                    <div class="w-full lg:w-4/5 p-4 space-y-6">
-                        <div class="bg-white shadow-lg rounded-lg p-6">
-                            <h2 class="text-xl font-semibold mb-4"><b>网络带宽</b>&nbsp;  <i class="fa fa-wifi" aria-hidden="true"></i></h2>
-                            <button type="button" class="w-full bg-gray-100 font-semibold rounded-md py-2" id="load-darkstat">实时带宽</button>
-                            <div id="darkstat-container"></div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>

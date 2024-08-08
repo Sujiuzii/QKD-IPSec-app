@@ -1,0 +1,90 @@
+.topology {
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+.topopopup {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.topopopup:hover {
+    transform: scale(1.1);
+}
+.host1 { top: 20%; left: 10%; }
+.host2 { top: 20%; left: 80%; }
+.host3 { top: 70%; left: 10%; }
+.host4 { top: 70%; left: 80%; }
+.gateway1 { top: 45%; left: 30%; }
+.gateway2 { top: 45%; left: 60%; }
+#popup-container {
+    z-index: 50;
+}
+#popup-container.hidden {
+    display: none;
+}
+#popup-content {
+    border: none;
+}
+#popup-close, #popup-refresh {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.lan-link, .vpn-link {
+    position: absolute;
+    background-color: #000;
+}
+.lan-link {
+    width: 2px;
+}
+.vpn-link {
+    top: 52%;
+    left: 37%;
+    width: 23%;
+    height: 8px;
+}
+
+.lan-link-1 {
+    top: 24%;
+    left: 23%;
+    transform: rotate(-60deg);
+    height: 35%;
+}
+.lan-link-2 {
+    top: 24%;
+    left: 74%;
+    transform: rotate(60deg);
+    height: 35%;
+}
+.lan-link-3 {
+    top: 49%;
+    left: 23%;
+    transform: rotate(60deg);
+    height: 35%;
+}
+.lan-link-4 {
+    top: 49%;
+    left: 74%;
+    transform: rotate(-60deg);
+    height: 35%;
+}
+
+.label {
+    position: absolute;
+    background: #fff;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.9em;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+.label-host1 { top: 15%; left: 10%; }
+.label-host2 { top: 15%; left: 80%; }
+.label-host3 { top: 65%; left: 10%; }
+.label-host4 { top: 65%; left: 80%; }
+.label-gateway1 { top: 40%; left: 30%; }
+.label-gateway2 { top: 40%; left: 60%; }

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网络拓扑</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="../assets/styles/styles.css" rel="stylesheet">
+    <link href="../assets/styles/sidebar.css" rel="stylesheet">
+    <link href="../assets/styles/topo.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar-->
+        <div class="border-end bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading border-bottom bg-light"><i class="fa fa-cube" aria-hidden="true"></i>&nbsp;&nbsp;量子安全文件传输</div>
+            <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./index.html"><i class="fa fa-star" aria-hidden="true"></i>&nbsp; 作品介绍</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./transfer.html"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp; 文件传输</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./parameters.html"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;监控仪表</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./protocol.html"><i class="fa fa-lock" aria-hidden="true"></i>&nbsp; 协议细节</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!"><i class="fa fa-magic" aria-hidden="true"></i>&nbsp; 网络拓扑</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./help.html"><i class="fa fa-book" aria-hidden="true"></i>&nbsp; 帮助文档</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./contact.html"><i class="fa fa-comments" aria-hidden="true"></i>&nbsp;联系我们</a>
+            </div>
+        </div>
+        <!-- Page content wrapper-->
+        <div id="page-content-wrapper">
+            <!-- Top navigation-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <div class="container-fluid">
+                    <button class="btn btn-secondary" id="sidebarToggle"><i class="fa fa-angle-double-left" aria-hidden="true"></i></button>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-language" aria-hidden="true"></i></a>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#!">中文</a>
+                                    <a class="dropdown-item" href="#!">English</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Page content-->
+            <div class="container-fluid">
+                <h2 class="text-center text-3xl font-bold text-gray-800 mb-6"><i class="fa fa-magic" aria-hidden="true"></i>&nbsp; 网络拓扑：演示过程中实际使用的网络拓扑结构</h2>
+                <div class="flex flex-wrap justify-center">
+                    <div class="w-full lg:w-4/5 p-4 space-y-6">
+                        <div class="bg-white shadow-lg rounded-lg p-6">
+                            <!-- 拓扑图 -->
+                            <div id="topology-diagram" class="topology">
+                                <div class="lan-link lan-link-1"></div>
+                                <div class="lan-link lan-link-2"></div>
+                                <div class="lan-link lan-link-3"></div>
+                                <div class="lan-link lan-link-4"></div>
+                                <!-- 设备标签 -->
+                                <div class="label label-host1">HOST1</div>
+                                <div class="label label-host2">HOST2</div>
+                                <div class="label label-host3">HOST3</div>
+                                <div class="label label-host4">HOST4</div>
+                                <div class="label label-gateway1">GW1</div>
+                                <div class="label label-gateway2">GW2</div>
+                                <!-- <div class="lan-link" style="top: 50%; left: 80%; height: 30%;"></div> -->
+                                <div class="vpn-link"></div>
+                                <img src="../assets/images/gateway.png" class="topopopup gateway2" data-url="https://monitor.elliot98.top/public-dashboards/10e8c0a437a743758bff0370cb6adb99?orgId=1&theme=light" alt="gateway2">
+                                <img src="../assets/images/host.png" class="topopopup host3" data-url="https://monitor.elliot98.top/public-dashboards/10e8c0a437a743758bff0370cb6adb99?orgId=1&theme=light" alt="host3">
+                                <img src="../assets/images/host.png" class="topopopup host1" data-url="https://monitor.elliot98.top/public-dashboards/cb6029749a3c49c6a48137000626bd23?orgId=1&theme=light" alt="host1">
+                                <img src="../assets/images/gateway.png" class="topopopup gateway1" data-url="https://monitor.elliot98.top/public-dashboards/773dc76fad9a42ddaf6f741ce2b6bf4a?orgId=0&theme=light" alt="gateway1">
+                                <img src="../assets/images/host.png" class="topopopup host2" data-url="https://monitor.elliot98.top/public-dashboards/3875235689b14d7a989fa45eca82887a?orgId=1&theme=light" alt="host2">
+                                <img src="../assets/images/host.png" class="topopopup host4" data-url="https://monitor.elliot98.top/public-dashboards/3875235689b14d7a989fa45eca82887a?orgId=1&theme=light" alt="host4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup-container" class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center">
+        <div class="bg-white rounded-lg shadow-lg w-3/4 h-3/4 relative">
+            <button id="popup-close" class="absolute top-4 right-4 text-gray-700"><i class="fa fa-times"></i></button>
+            <button id="popup-refresh" class="absolute top-4 right-16 text-gray-700"><i class="fa fa-sync"></i></button>
+            <webview id="popup-content" class="w-full h-full"></webview>
+        </div>
+    </div>
+
+    <script src="../tscjs/renderer/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../tscjs/renderer/components/Sidebar.js"></script>
+    <script src="../tscjs/renderer/components/Topology.js"></script>
+</body>
+</html>
