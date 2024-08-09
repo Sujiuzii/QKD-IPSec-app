@@ -88,3 +88,6 @@
 .label-host4 { top: 65%; left: 80%; }
 .label-gateway1 { top: 40%; left: 30%; }
 .label-gateway2 { top: 40%; left: 60%; }
+.label-lan1 { top: 47%; left: 5%; color: red; }
+.label-lan2 { top: 47%; left: 75%; color: red; }
+.label-channel { top: 40%; left: 42%; color: red; }
