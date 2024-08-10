@@ -53,25 +53,25 @@
     top: 24%;
     left: 23%;
     transform: rotate(-60deg);
-    height: 35%;
+    height: 32%;
 }
 .lan-link-2 {
     top: 24%;
     left: 74%;
     transform: rotate(60deg);
-    height: 35%;
+    height: 32%;
 }
 .lan-link-3 {
     top: 49%;
     left: 23%;
     transform: rotate(60deg);
-    height: 35%;
+    height: 32%;
 }
 .lan-link-4 {
     top: 49%;
     left: 74%;
     transform: rotate(-60deg);
-    height: 35%;
+    height: 32%;
 }
 
 .label {

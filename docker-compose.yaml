@@ -1,0 +1,20 @@
+version: '3'
+services:
+  electron:
+    build: .
+    container_name: electron
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    command: npm start
+    depends_on:
+      - api
+  api:
+    build: ./api
+    container_name: api
+    volumes:
+      - ./api:/app
+    ports:
+      - "3001:3001"
+    command: npm start
